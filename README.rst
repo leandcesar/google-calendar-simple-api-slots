@@ -54,7 +54,7 @@ List slots specifying time range, slot interval, max events per slot and calenda
         case_sensitive=False,
         time_min=datetime(2023, 3, 6),
         time_max=datetime(2023, 3, 7),
-        interval_in_minutes=90,
+        slot_duration=90,
         events_per_slot=3,
         calendar_id=calendar_id,
     ):
