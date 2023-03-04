@@ -20,7 +20,7 @@ setup(
     author="Leandro César Cassimiro",
     author_email="ccleandroc@gmail.com",
     url="https://github.com/leandcesar/google-calendar-simple-api-slots",
-    version="0.1.0",
+    version="0.1.1",
     license="MIT",
     python_requires=">=3.7",
     packages=find_packages(include=["gcsa_slots", "gcsa_slots.*"]),

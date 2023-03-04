@@ -26,10 +26,10 @@ class Slot(Event):
         super().__init__(summary, start, end, timezone=timezone, **kwargs)
 
     def __str__(self):
-        return '{} - {}'.format(self.start, self.end)
+        return f"{self.start} - {self.end}"
 
     def __repr__(self):
-        return '<Slot {}>'.format(self.__str__())
+        return f"<Slot {self.__str__()}>"
 
     def __eq__(self, other):
         return (
@@ -46,8 +46,8 @@ class SlotsService(EventsService):
 
     def get_slots(
         self,
+        slot_duration: int,  # in minutes
         slot_summary: str = None,
-        slot_duration: Union[int, timedelta] = 60,  # in minutes
         time_min: Union[date, datetime, BeautifulDate] = datetime.utcnow(),
         time_max: Union[date, datetime, BeautifulDate] = datetime.utcnow() + timedelta(days=7),
         calendar_id: str = None,
@@ -57,8 +57,8 @@ class SlotsService(EventsService):
         **kwargs,
     ) -> Iterable[Slot]:
         kwargs.pop("query", None)
-        slots = []
 
+        slots = []
         if slot_summary:
             for event in self.get_events(
                 time_min=time_min,
